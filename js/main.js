@@ -305,12 +305,12 @@ class BrowserMod {
 
   blackout(msg){
     const fn = () => {
-      if (window.fully)
-      {
-        fully.turnScreenOff();
-      } else {
-        this._blackout.style.visibility = "visible";
-      }
+      // if (window.fully)
+      // {
+        // fully.turnScreenOff();
+      // } else {
+      this._blackout.style.visibility = "visible";
+      // }
       this.update();
     };
     if(msg.time) {
@@ -323,19 +323,19 @@ class BrowserMod {
     this._set_screensaver();
     if(this.autoclose_popup_active)
       return this.close_popup();
-    if (window.fully)
-    {
-      if (!fully.getScreenOn())
-        fully.turnScreenOn();
-      if (msg.brightness)
-        fully.setScreenBrightness(msg.brightness);
-      this.update();
-    } else {
+    // if (window.fully)
+    // {
+    //   if (!fully.getScreenOn())
+    //     fully.turnScreenOn();
+    //   if (msg.brightness)
+    //     fully.setScreenBrightness(msg.brightness);
+    //   this.update();
+    // } else {
       if(this._blackout.style.visibility !== "hidden") {
         this._blackout.style.visibility = "hidden";
         this.update();
       }
-    }
+    // }
   }
   is_blackout(){
     if (window.fully)
